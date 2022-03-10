@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gbrm.order.dao.RecordInfoMapper">
+  <resultMap id="BaseResultMap" type="com.gbrm.order.model.RecordInfo">
+    <constructor>
+      <arg column="from_station" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="to_station" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="status" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gbrm.order.model.RecordInfo">
+    insert into record_info (from_station, to_station, status
+      )
+    values (#{fromStation,jdbcType=VARCHAR}, #{toStation,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gbrm.order.model.RecordInfo">
+    insert into record_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fromStation != null">
+        from_station,
+      </if>
+      <if test="toStation != null">
+        to_station,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fromStation != null">
+        #{fromStation,jdbcType=VARCHAR},
+      </if>
+      <if test="toStation != null">
+        #{toStation,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

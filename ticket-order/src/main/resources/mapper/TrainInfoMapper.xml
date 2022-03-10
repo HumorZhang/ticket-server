@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gbrm.order.dao.TrainInfoMapper">
+  <resultMap id="BaseResultMap" type="com.gbrm.order.model.TrainInfo">
+    <constructor>
+      <arg column="train_number" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="from_city" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="to_city" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="from_time" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="to_time" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="total_time" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="noseat_num" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="noseat_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="hardseat_num" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="hardseat_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="hardsleeper_num" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="hardsleeper_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="softsleeper_num" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="softsleeper_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gbrm.order.model.TrainInfo">
+    insert into train_info (train_number, from_city, to_city, 
+      from_time, to_time, total_time, 
+      noseat_num, noseat_price, hardseat_num, 
+      hardseat_price, hardsleeper_num, hardsleeper_price, 
+      softsleeper_num, softsleeper_price)
+    values (#{trainNumber,jdbcType=VARCHAR}, #{fromCity,jdbcType=VARCHAR}, #{toCity,jdbcType=VARCHAR}, 
+      #{fromTime,jdbcType=VARCHAR}, #{toTime,jdbcType=VARCHAR}, #{totalTime,jdbcType=VARCHAR}, 
+      #{noseatNum,jdbcType=INTEGER}, #{noseatPrice,jdbcType=DECIMAL}, #{hardseatNum,jdbcType=INTEGER}, 
+      #{hardseatPrice,jdbcType=DECIMAL}, #{hardsleeperNum,jdbcType=INTEGER}, #{hardsleeperPrice,jdbcType=DECIMAL}, 
+      #{softsleeperNum,jdbcType=INTEGER}, #{softsleeperPrice,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gbrm.order.model.TrainInfo">
+    insert into train_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="trainNumber != null">
+        train_number,
+      </if>
+      <if test="fromCity != null">
+        from_city,
+      </if>
+      <if test="toCity != null">
+        to_city,
+      </if>
+      <if test="fromTime != null">
+        from_time,
+      </if>
+      <if test="toTime != null">
+        to_time,
+      </if>
+      <if test="totalTime != null">
+        total_time,
+      </if>
+      <if test="noseatNum != null">
+        noseat_num,
+      </if>
+      <if test="noseatPrice != null">
+        noseat_price,
+      </if>
+      <if test="hardseatNum != null">
+        hardseat_num,
+      </if>
+      <if test="hardseatPrice != null">
+        hardseat_price,
+      </if>
+      <if test="hardsleeperNum != null">
+        hardsleeper_num,
+      </if>
+      <if test="hardsleeperPrice != null">
+        hardsleeper_price,
+      </if>
+      <if test="softsleeperNum != null">
+        softsleeper_num,
+      </if>
+      <if test="softsleeperPrice != null">
+        softsleeper_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="trainNumber != null">
+        #{trainNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="fromCity != null">
+        #{fromCity,jdbcType=VARCHAR},
+      </if>
+      <if test="toCity != null">
+        #{toCity,jdbcType=VARCHAR},
+      </if>
+      <if test="fromTime != null">
+        #{fromTime,jdbcType=VARCHAR},
+      </if>
+      <if test="toTime != null">
+        #{toTime,jdbcType=VARCHAR},
+      </if>
+      <if test="totalTime != null">
+        #{totalTime,jdbcType=VARCHAR},
+      </if>
+      <if test="noseatNum != null">
+        #{noseatNum,jdbcType=INTEGER},
+      </if>
+      <if test="noseatPrice != null">
+        #{noseatPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="hardseatNum != null">
+        #{hardseatNum,jdbcType=INTEGER},
+      </if>
+      <if test="hardseatPrice != null">
+        #{hardseatPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="hardsleeperNum != null">
+        #{hardsleeperNum,jdbcType=INTEGER},
+      </if>
+      <if test="hardsleeperPrice != null">
+        #{hardsleeperPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="softsleeperNum != null">
+        #{softsleeperNum,jdbcType=INTEGER},
+      </if>
+      <if test="softsleeperPrice != null">
+        #{softsleeperPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>

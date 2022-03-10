@@ -1,0 +1,13 @@
+POST http://localhost:8081/addPassenger
+Content-Type: application/json
+
+{
+  "loginName": "zgg",
+  "password": "123456",
+  "reserverName": "张感高",
+  "phoneNumber": "13171098795",
+  "address": "湖北省武穴市大金镇张天二村",
+  "passengerType": "成人"
+}
+
+###
