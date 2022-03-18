@@ -2,6 +2,9 @@ package com.gbrm.order.model;
 
 import lombok.Data;
 
+/*
+乘客
+ */
 @Data
 public class Passenger {
     private Long   id;

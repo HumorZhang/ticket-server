@@ -4,6 +4,9 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+/*
+   高铁信息
+ */
 @Data
 public class GdInfo {
     private String trainNumber;
